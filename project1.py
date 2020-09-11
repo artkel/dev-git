@@ -1,2 +1,2 @@
-word = ["All", "my", "troubles", "seemed", "so", "far", "away"]
-print(list(map(len, word)))
+y = x ** 2 + 5
+z = (x + y)* (x - y)
