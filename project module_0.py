@@ -12,14 +12,32 @@ def score_game(game_core):
         count_ls.append(game_core(number))
 
     score = (np.mean(count_ls))
-    print(f"Ваш алгоритм угадывает число в среднем за {score} попыток")
+    # print(f"Ваш алгоритм угадывает число в среднем за {score} попыток")
 
     return(score)
 
+
+print("Случайный поиск:")
+def random_search(number):
+    '''Просто угадываем на random, никак не используя информацию о больше или меньше.
+       Функция принимает загаданное число и возвращает число попыток'''
+
+    count = 0
+
+    while True:
+        count += 1
+        predict = np.random.randint(1, 101) # предполагаемое число
+        if number == predict:
+
+            return(count) # выход из цикла, если угадали
+print(f"Ваш алгоритм угадывает число в среднем за {score_game(random_search)} попыток")
+
+
+print()
 print("Бинарный поик:")
 def binary_search(number):
     '''Бинарный поик: Предиктор каждую попытку равен середине диапазона поиска;
-    при этом каждый раз исключается половина оставшихся чисел'''
+        при этом каждый раз исключается половина оставшихся чисел'''
 
     count = 1  # счетчик попыток
     number = np.random.randint(1, 101) # загадываем случайное число в диапазоне от 1 до 100
@@ -39,4 +57,4 @@ def binary_search(number):
     return count, # если число угадано, возвращаем счетчик попыток
 
 
-score_game(binary_search)
+print(f"Ваш алгоритм угадывает число в среднем за {score_game(binary_search)} попыток")
